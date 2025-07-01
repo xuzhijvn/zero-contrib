@@ -20,7 +20,7 @@ import (
 var (
 	port        = flag.Int("port", 50051, "服务器端口")
 	client      = flag.Bool("client", false, "运行客户端模式")
-	zkServers   = flag.String("zk", "localhost:2181", "Zookeeper服务器地址，多个地址用逗号分隔")
+	zkServers   = flag.String("zk", "tony2c4g:2181", "Zookeeper服务器地址，多个地址用逗号分隔")
 	serviceName = flag.String("service", "greeter", "服务名称")
 )
 
@@ -108,9 +108,9 @@ func runClient() {
 	defer cancel()
 
 	name := "world"
-	if len(flag.Args()) > 0 {
-		name = flag.Args()[0]
-	}
+	//if len(flag.Args()) > 0 {
+	//	name = flag.Args()[0]
+	//}
 
 	resp, err := client.SayHello(ctx, &helloworld.HelloRequest{Name: name})
 	if err != nil {
